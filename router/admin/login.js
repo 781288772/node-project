@@ -1,6 +1,7 @@
 const { User } = require('../../model/user');
 const JwtUtil = require('../../jwt')
 const dbConfig = require('../../model/connect')
+const R = require('../../config/R')
 const login = async (req, res) => {
     let { username, password } = req.body;
     console.log('请求的参数：', req.body);
@@ -14,21 +15,18 @@ const login = async (req, res) => {
 
         if (data.length == 0) {
             let obj = {
-                code: 20002,
-                message: '用户名或密码不正确',
+                msg: '用户名或密码不正确',
             }
-            res.send(obj);
+            res.send(R.fail(obj));
         } else {
             let _id = data[0].id.toString();
             let jwt = new JwtUtil(_id);
             let token = jwt.generateToken(_id);
             // console.log(token);
-            let obj = {
-                code: 20000,
-                message: '操作成功',
-                token: token
+            let takenData = {
+                token
             }
-            res.send(obj)
+            res.send(R.success(takenData))
         }
     }
     dbConfig.sqlConnect(sql, sqlArr, callBack);

@@ -22,6 +22,24 @@ const register = async (req, res) => {
         res.send(obj)
         return
     }
+    dbConfig.sqlConnect(`select * from sys_user where username = '${username}'`, [], (err,data)=>{
+        console.log(err,222222222222222222)
+        console.log(data,33333333333333)
+                if(err!=null){
+                    res.send(R.fail(err))
+                    return;
+                }
+                if(data!=[]){
+                    let obj = {
+                        msg:'该账号已被注册！'
+                    }
+                   res.send(R.fail(obj))
+
+                   return;
+                }
+               
+              
+    });
     var sql = `insert into sys_user(username,password) values('${username}','${password}')`; 
     var sqlArr = [];
     var callBack = (err, data) => {
@@ -45,8 +63,8 @@ const register = async (req, res) => {
             res.send(R.success())
         }
     }
+   
     dbConfig.sqlConnect(sql, sqlArr, callBack);
-
 }
 
 

@@ -43,9 +43,7 @@ app.use('/admin', login);
 
 
 
-// require('./model/user')
 
-
-app.listen(80, () => {
-    console.log('服务已启动');
+app.listen(3000, () => {
+    console.log('服务已启动,端口：3000');
 });

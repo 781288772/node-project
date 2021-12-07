@@ -33,7 +33,7 @@ class BizResult {
         this.code = code;
         this.msg = msg;
         this.data = data;
-        this.time = Date.now();
+        // this.time = Date.now();
     }
 
     /**

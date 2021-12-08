@@ -55,9 +55,10 @@ const register = async (req, res) => {
                 }
                 if(data.length!=0){
                     let obj = {
+                        code:500,
                         msg:'该账号已被注册！'
                     }
-                   res.send(R.fail(obj))
+                   res.send(R.bizFail(obj))
                    return;
                   
                 }else{

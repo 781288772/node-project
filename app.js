@@ -16,8 +16,8 @@ var callBack = (err,data)=>{
         console.log('数据库连接出错');
         return;
     }
-    R.success(data);
-    console.log("系统用户表数据:",data);
+    // R.success(data);
+    // console.log("系统用户表数据:",data);
     
 }
 dbConfig.sqlConnect(sql,sqlArr,callBack);
@@ -40,10 +40,6 @@ app.use('/static',express.static(path.join(__dirname,'public')));
 app.use(require('./validToken'));
 const login = require('./router/admin');
 app.use('/admin', login);
-
-
-
-
 app.listen(3000, () => {
     console.log('服务已启动,端口：3000');
 });

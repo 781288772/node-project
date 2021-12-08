@@ -36,7 +36,7 @@ const register = async (req, res) => {
                 code: 20001,
                 message: '操作失败',
             }
-            res.send(obj);
+            res.send(R.bizFail);
         } else {
             let obj = {
                 code: 20000,

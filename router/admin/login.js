@@ -8,6 +8,7 @@ const login = async (req, res) => {
     var sql = "select * from sys_user where username='" + username + "' and password='" + password + "'";
     var sqlArr = [];
     var callBack = (err, data) => {
+        console.log(data)
         if (err) {
             console.log('连接出错');
             return;

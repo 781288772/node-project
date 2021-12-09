@@ -14,18 +14,18 @@ const register = async (req, res) => {
     // console.log(username);
     if(username==undefined || username==""){
         let obj = {
-            code: 40004,
-            message: '用户名不能为空',
+            code: 400,
+            msg: '用户名不能为空',
         }
-        res.send(obj)
+        res.send(R.bizFail(obj))
         return
     }
     if( password==undefined||password==""){
         let obj = {
-            code: 40004,
-            message: '密码不能为空',
+            code: 400,
+            msg: '密码不能为空',
         }
-        res.send(obj)
+        res.send(R.bizFail(obj))
         return
     }
 
@@ -38,17 +38,8 @@ const register = async (req, res) => {
         }
 
         if (data.length == 0) {
-            let obj = {
-                code: 20001,
-                message: '操作失败',
-            }
-            res.send(R.bizFail);
+            res.send(R.fail());
         } else {
-            let obj = {
-                code: 20000,
-                message: '操作成功',
-            }
-       
             res.send(R.success())
         }
     }

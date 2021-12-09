@@ -2,9 +2,15 @@
 const { User } = require('../../model/user');
 const dbConfig = require('../../model/connect')
 const R = require('../../config/R')
+var uuid = require('node-uuid');
+// 生成uuid
+let uid = uuid.v1();
+uid = uid.replace(/-/g,"")
+console.log(uid)
 const register = async (req, res) => {
     let { username, password } = req.body;
     console.log('请求的参数=========>', req.body);
+
     // console.log(username);
     if(username==undefined || username==""){
         let obj = {
@@ -23,7 +29,7 @@ const register = async (req, res) => {
         return
     }
 
-    var sql = `insert into sys_user(username,password) values('${username}','${password}')`; 
+    var sql = `insert into sys_user(id,username,password) values('${uid}','${username}','${password}')`; 
     var sqlArr = [];
     var callBack = (err, data) => {
         if (err) {

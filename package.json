@@ -17,8 +17,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.0",
-    "nodemon": "^2.0.15",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "node-uuid": "^1.4.8",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "mysql": "^2.18.1"

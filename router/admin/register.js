@@ -6,7 +6,7 @@ var uuid = require('node-uuid');
 // 生成uuid
 let uid = uuid.v1();
 uid = uid.replace(/-/g,"")
-console.log(uid)
+// console.log(uid)
 const register = async (req, res) => {
     let { username, password } = req.body;
     console.log('请求的参数=========>', req.body);

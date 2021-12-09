@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const R = require('./config/R')
+const user = require('./router/admin/user')
+    user.login()
+    user.userSubmit()
+
 // 处理post请求参数
 // 被弃用
 // const bodyParser = require('body-parser');
@@ -40,6 +44,7 @@ app.use('/static',express.static(path.join(__dirname,'public')));
 app.use(require('./validToken'));
 const login = require('./router/admin');
 app.use('/admin', login);
+
 app.listen(3000, () => {
     console.log('服务已启动,端口：3000');
 });

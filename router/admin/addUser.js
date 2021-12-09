@@ -1,5 +1,4 @@
-const { User } = require('../../model/user');
-const JwtUtil = require('../../jwt')
+
 const dbConfig = require('../../model/connect')
 const R = require('../../config/R')
 const addUser = async (req, res) => {

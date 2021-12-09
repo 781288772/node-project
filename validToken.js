@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
         // 通过就next，否则就返回登陆信息不正确
         if (result == 'err') {
             // console.log(result);
-            res.send(R.bizFail({code: 401, message: '登录已过期,请重新登录'}));
+            res.send(R.bizFail({code: 401, msg: '登录已过期,请重新登录'}));
             
             // res.render('login.html');
         } else {

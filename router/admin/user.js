@@ -11,6 +11,7 @@ let uid = uuid.v1();
 uid = uid.replace(/-/g,"")
 let sql = "";
 let sqlArr = [];
+
 /**
  * 登录
  * @param {请求参数} req 
@@ -95,15 +96,34 @@ const register = async function (req, res) {
                         res.send(R.success())
                     }
                 });
+              
             }    
                 
     })
 
 
 }
+/**
+ * 新增用户
+ * @param {*} req 
+ * @param {*} res 
+ */
+const addUser = (req,res)=>{
+
+}
+const updateUserInfo = (req,res)=>{
+    let {id,username,phone,email} = req.body;
+    sql = `update sys_user set username='${username}',phone='${phone}',email='${email}' where id='${id}'`;
+    dbConfig.sqlConnect(sql,sqlArr,(err,data)=>{
+        if(err) throw err;
+        res.send(R.success());
+    })
+}
 
 
 module.exports = {
     login,
-    register
+    register,
+    addUser,
+    updateUserInfo
 }

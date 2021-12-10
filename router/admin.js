@@ -7,5 +7,5 @@ admin.post('/deleteUser', require('./admin/deleteUser'))
 admin.get('/queryUserList', require('./admin/queryUserList'))
 admin.post('/register',user.register)
 admin.get('/getUserDetailById',require('./admin/queryUserDetail'))
-admin.post('/updateUserInfo',require('./admin/updateUser'))
+admin.post('/updateUserInfo',user.updateUserInfo)
 module.exports = admin;

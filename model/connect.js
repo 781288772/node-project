@@ -5,6 +5,7 @@
 //     .catch(() => {
 //         console.log('数据库连接失败')
 //     })
+const colors = require('colors-console')
 const mysql = require('mysql');
 module.exports = {
     // 数据库配置
@@ -21,10 +22,10 @@ module.exports = {
         var pool = mysql.createPool(this.config)
         pool.getConnection((err,conn)=>{
             if(!err){
-                console.log('数据库连接成功');
+                console.log(colors('green','数据库连接成功'));
             }
             if(err){
-                console.log('数据库连接失败');
+                console.log(colors('red','数据库连接失败'));
                 return;
             }
             // 事件驱动回调

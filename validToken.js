@@ -1,7 +1,8 @@
 const JwtUtil = require('./jwt');
 const R = require('./config/R')
+const colors = require('colors-console');
 module.exports = (req, res, next) => {
-    console.log('url=====>',req.url)
+    console.log(colors('yellow','url------->'),req.url)
     if (req.url != '/admin/login' && req.url != '/admin/register') {
         console.log( req.headers);
         let token = req.headers.authorization;

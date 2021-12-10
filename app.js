@@ -21,8 +21,7 @@ var callBack = (err,data)=>{
         return;
     }
     // R.success(data);
-    // console.log("系统用户表数据:",data);
-    
+    // console.log("系统用户表数据:",data);    
 }
 dbConfig.sqlConnect(sql,sqlArr,callBack);
 app.use(express.urlencoded({extended:false}));
@@ -46,5 +45,5 @@ const login = require('./router/admin');
 app.use('/admin', login);
 
 app.listen(3000, () => {
-    console.log('服务已启动,端口：3000');
+    console.log('服务已启动,端口:3000');
 });

@@ -1,6 +1,7 @@
 const express = require('express');
+const user = require('../router/admin/user')
 const admin = express.Router();
-admin.post('/login', require('./admin/login'))
+admin.post('/login',user.login)
 admin.post('/addUser', require('./admin/addUser'))
 admin.post('/deleteUser', require('./admin/deleteUser'))
 admin.get('/queryUserList', require('./admin/queryUserList'))

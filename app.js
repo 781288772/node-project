@@ -4,9 +4,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const R = require('./config/R')
-const user = require('./router/admin/user')
-    user.login()
-    user.userSubmit()
+// const user = require('./router/admin/user')
+//     user.login()
+//     user.userSubmit()
 
 // 处理post请求参数
 // 被弃用
@@ -28,6 +28,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 // const Jwt = require('./jwt')
 app.all('*', function (req, res, next) {
+    console.log("请求参数",req.body)
     // console.log(req.headers.origin)
     // console.log(req.environ)
     res.header("Access-Control-Allow-Origin", req.headers.origin);

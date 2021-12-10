@@ -111,6 +111,11 @@ const register = async function (req, res) {
 const addUser = (req,res)=>{
 
 }
+/**
+ * 修改用户信息
+ * @param {*} req 
+ * @param {*} res 
+ */
 const updateUserInfo = (req,res)=>{
     let {id,username,phone,email} = req.body;
     sql = `update sys_user set username='${username}',phone='${phone}',email='${email}' where id='${id}'`;

@@ -1,5 +1,6 @@
 
 # 基于node+express 搭建的用户管理后台接口项目
+集成了token验证、swagger、mysql
 
 #### 安装教程
 

@@ -8,6 +8,8 @@ const R = require('./config/R')
 //     user.login()
 //     user.userSubmit()
 
+var swaggerInstall = require('./config/swagger')
+swaggerInstall(app)
 // 处理post请求参数
 // 被弃用
 // const bodyParser = require('body-parser');
@@ -45,6 +47,7 @@ app.all('*', function (req, res, next) {
 app.use('/static',express.static(path.join(__dirname,'public')));
 app.use(require('./validToken'));
 const login = require('./router/admin');
+
 app.use('/admin', login);
 
 app.listen(3000, () => {

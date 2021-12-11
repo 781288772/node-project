@@ -31,7 +31,8 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 // const Jwt = require('./jwt')
 app.all('*', function (req, res, next) {
-    console.log(colors('magenta','请求参数-------->'),req.body)
+    console.log(colors('magenta','POST请求参数-------->'),req.body)
+    console.log(colors('magenta','GET请求参数-------->'),req.query)
     // console.log(res)
     // console.log(req.headers.origin)
     // console.log(req.environ)

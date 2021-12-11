@@ -124,11 +124,20 @@ const updateUserInfo = (req,res)=>{
         res.send(R.success());
     })
 }
+const removeUser = (req,res)=>{
+    let {id} = req.query;
+    sql = `delete from sys_user where id='${id}'`
+    dbConfig.sqlConnect(sql,sqlArr,(err,data)=>{
+        if(err) throw err;
+        res.send(R.success());
+    })
+}
 
 
 module.exports = {
     login,
     register,
     addUser,
-    updateUserInfo
+    updateUserInfo,
+    removeUser
 }

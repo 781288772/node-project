@@ -4,7 +4,7 @@ const admin = express.Router();
 
 admin.post('/login',user.login)
 admin.post('/addUser', require('./admin/addUser'))
-admin.post('/deleteUser', require('./admin/deleteUser'))
+admin.post('/removeUser',user.removeUser)
 admin.get('/queryUserList', require('./admin/queryUserList'))
 admin.post('/register',user.register)
 admin.get('/getUserDetailById',require('./admin/queryUserDetail'))

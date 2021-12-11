@@ -1,6 +1,7 @@
 const { User } = require('../../model/user');
 const JwtUtil = require('../../jwt')
 const dbConfig = require('../../model/connect')
+const R = require('../../config/R')
 const deleteUser = async (req, res) => {
     let { id } = req.body;
     console.log('请求的参数========>', req.body);
@@ -18,7 +19,7 @@ const deleteUser = async (req, res) => {
     var sqlArr = [];
     var callBack = (err, data) => {
         if (err) {
-            console.log('连接出错');
+            res.send(R.bizFail(err))
             return;
         }
 
@@ -27,13 +28,13 @@ const deleteUser = async (req, res) => {
                 code: 20001,
                 message: '操作失败',
             }
-            res.send(obj);
+            res.send(R.fail());
         } else {
             let obj = {
                 code: 20000,
                 message: '操作成功',
             }
-            res.send(obj)
+            res.send(R.success())
         }
     }
     dbConfig.sqlConnect(sql, sqlArr, callBack);

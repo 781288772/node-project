@@ -124,12 +124,22 @@ const updateUserInfo = (req,res)=>{
         res.send(R.success());
     })
 }
+// 删除用户
 const removeUser = (req,res)=>{
     let {id} = req.query;
     sql = `delete from sys_user where id='${id}'`
     dbConfig.sqlConnect(sql,sqlArr,(err,data)=>{
         if(err) throw err;
         res.send(R.success());
+    })
+}
+// 用户详情
+const userDetail = (req,res)=>{
+    let {id} = req.query;
+    sql = `select id,username,phone,email from sys_user where id='${id}'`;
+    dbConfig.sqlConnect(sql,sqlArr,(err,data)=>{
+        if(err) throw err;
+        res.send(R.success(data));
     })
 }
 
@@ -139,5 +149,6 @@ module.exports = {
     register,
     addUser,
     updateUserInfo,
-    removeUser
+    removeUser,
+    userDetail
 }
